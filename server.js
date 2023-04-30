@@ -19,6 +19,8 @@ const sess = {
   secret: '',
   cookie: {
     httpOnly: true,
+    sameSite: 'strict',
+    secure: false,
   },
   resave: false,
   saveUninitialized: true,
