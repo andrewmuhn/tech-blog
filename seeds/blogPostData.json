@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Node.js, the PHP killer",
+    "content": "So glad I don't have to work with PHP anymore. Node and now deno are the best. Javascript for lyfe."
+  },
+  {
+    "title": "Comparison of SQL databases",
+    "content": "mySQL: open-source horizontal scalibilty. Oracle: proprietary, PostgreSQL: better for 'distributed SQL'"
+  },
+  {
+    "title": "Git Commit: a learning in git flow",
+    "content": "Wow, what a head ache. We have all been there when merge conflict hell arises from the depths after a particularly long coding session..."
+  }
+]
