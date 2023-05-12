@@ -1,0 +1,14 @@
+{{#each blogPosts as |blogPost|}}
+  <div>
+    <div>
+      <h4>{{blogPost.title}}</h4>
+      <span>Posted by:
+        {{blogPost.user.name}}
+        on
+        {{blogPost.date_created}}</span>
+    </div>
+    <div>
+      <p>{{blogPost.content}}</p>
+    </div>
+  </div>
+{{/each}}
