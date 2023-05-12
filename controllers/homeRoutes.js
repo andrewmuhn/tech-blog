@@ -4,23 +4,6 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    const blogPostData = await BlogPost.findAll();
-    const blogPosts = blogPostData.map((blogPost) =>
-      blogPost.get({ plain: true })
-    );
-    console.log(blogPosts);
-    res.status(200).json(blogPosts);
-    // res.render('homepage', {
-    //   blogPosts,
-    //   logged_in: req.session.logged_in,
-    // });
-  } catch (err) {
-    res.status(500).json({ message: 'Error' });
-  }
-});
-
-router.get('/dashboard', withAuth, async (req, res) => {
-  try {
     const blogPostData = await BlogPost.findAll({
       include: [
         {
@@ -36,18 +19,39 @@ router.get('/dashboard', withAuth, async (req, res) => {
     const blogPosts = blogPostData.map((blogPost) =>
       blogPost.get({ plain: true })
     );
-    res.status(200).json(blogPosts);
-    // res.render('dashboard', {
-    //   blogPosts,
-    //   logged_in: req.session.logged_in,
-    // });
+    res.render('homepage', {
+      blogPosts,
+      logged_in: req.session.logged_in,
+    });
   } catch (err) {
     res.status(500).json({ message: 'Error' });
   }
 });
 
-router.get('/newPost', withAuth, async (req, res) => {
-  res.render('new-post', {
+router.get('/dashboard', withAuth, async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [
+        {
+          model: BlogPost,
+        },
+      ],
+    });
+
+    const user = userData.get({ plain: true });
+
+    res.render('dashboard', {
+      ...user,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json({ message: 'Error' });
+  }
+});
+
+router.get('/new-post', withAuth, async (req, res) => {
+  res.render('newBlogPost', {
     logged_in: req.session.logged_in,
   });
 });
@@ -57,11 +61,11 @@ router.get('/post/:id', async (req, res) => {
   try {
     const blogPostData = await BlogPost.findByPk(req.params.id);
     const blogPost = blogPostData.get({ plain: true });
-    res.status(200).json(blogPost);
-    // res.render('post', {
-    //   blogPost,
-    //   logged_in: req.session.logged_in,
-    // });
+    // res.status(200).json(blogPost);
+    res.render('viewPost', {
+      blogPost,
+      logged_in: req.session.logged_in,
+    });
   } catch (err) {
     res.status(500).json({ message: 'Error' });
   }
@@ -75,12 +79,12 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.get('/signUp', (req, res) => {
+router.get('/sign-up', (req, res) => {
   if (req.session.logged_in) {
     res.redirect('/');
     return;
   }
-  res.render('sign-up');
+  res.render('signUp');
 });
 
 module.exports = router;
