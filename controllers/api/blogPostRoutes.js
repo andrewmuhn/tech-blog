@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const { BlogPost } = require('../../utils/auth');
+const { BlogPost } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   try {
     const newBlogPost = await BlogPost.create({
       ...req.body,
@@ -15,7 +15,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.route('/:id').get(async (req, res) => {
+router.route('/:id').get(withAuth, async (req, res) => {
   try {
     const blogPostData = await BlogPost.findByPk(req.params.id);
     const blogPost = blogPostData.get({ plain: true });
