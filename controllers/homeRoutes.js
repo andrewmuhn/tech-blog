@@ -56,11 +56,33 @@ router.get('/new-post', withAuth, async (req, res) => {
   });
 });
 
-router.get('/post/:id', async (req, res) => {
+router.get('/edit-post/:id', withAuth, async (req, res) => {
   try {
     const blogPostData = await BlogPost.findByPk(req.params.id);
     const blogPost = blogPostData.get({ plain: true });
     res.render('editPost', {
+      blogPost,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json({ message: 'Error' });
+  }
+});
+
+router.get('/view-post/:id', async (req, res) => {
+  try {
+    const blogPostData = await BlogPost.findByPk(req.params.id, {
+      include: {
+        model: Comment,
+        include: {
+          model: User,
+          attributes: { exclude: ['password'] },
+        },
+      },
+    });
+    const blogPost = blogPostData.get({ plain: true });
+    console.log(blogPost.comments);
+    res.render('viewPost', {
       blogPost,
       logged_in: req.session.logged_in,
     });
