@@ -28,6 +28,7 @@ const handleDelete = async (event) => {
     method: 'DELETE',
   });
   if (response.ok) {
+    console.log('delete response ok');
     document.location.replace('/dashboard');
   } else {
     alert(response.statusText);
