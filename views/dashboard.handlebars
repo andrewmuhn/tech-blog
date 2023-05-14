@@ -1,7 +1,14 @@
-{{#each blogPosts as |blogPost|}}
-  <div>
-    <span>{{blogPost.title}}</span>
-    <span>{{blogPost.date_created}}</span>
-  </div>
-{{/each}}
+<div class='dashboard-post-list'>
+
+  {{#each blogPosts as |blogPost|}}
+    <div>
+      <button type='button' id='blogpost-{{blogPost.id}}'>
+        {{blogPost.title}}
+        {{format_date blogPost.date_created}}
+      </button>
+    </div>
+  {{/each}}
+</div>
 <button id='new-post'>+ New Post</button>
+
+<script src='./js/dashboard.js'></script>

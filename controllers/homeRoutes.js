@@ -57,11 +57,9 @@ router.get('/new-post', withAuth, async (req, res) => {
 });
 
 router.get('/post/:id', async (req, res) => {
-  res.status(204);
   try {
     const blogPostData = await BlogPost.findByPk(req.params.id);
     const blogPost = blogPostData.get({ plain: true });
-    // res.status(200).json(blogPost);
     res.render('viewPost', {
       blogPost,
       logged_in: req.session.logged_in,
