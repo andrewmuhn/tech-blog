@@ -4,11 +4,21 @@
   <form class='form edit-post'>
     <div class='form-group'>
       <label for='title'>Title:</label>
-      <input class='form-input' type='text' id='title' />
+      <input
+        class='form-input'
+        type='text'
+        id='title'
+        value='{{blogPost.title}}'
+      />
     </div>
     <div class='form-group'>
       <label for='content'>Content:</label>
-      <input class='form-input' type='text' id='content' />
+      <input
+        class='form-input'
+        type='text'
+        id='content'
+        value='{{blogPost.content}}'
+      />
     </div>
     <div class='form-group'>
       <button
