@@ -1,0 +1,30 @@
+<div class='col-md-6'>
+  <div>
+    <div>
+      {{blogPost.title}}
+      Posted by:
+      {{blogPost.user.name}}
+      on
+      {{format_date blogPost.date_created}}
+    </div>
+    <p>{{blogPost.content}}</p>
+  </div>
+  <div id='comment-container'>
+    {{#each blogPost.comments as |comment|}}
+    <div>
+      Posted by:
+      {{comment.user.name}}
+      on
+      {{format_date comment.date_created}}
+    </div>
+    <p>{{comment.content}}</p>
+  </div>
+    {{/each}}
+  </div>
+  <form id='comment-input-container'></form>
+  {{#if logged_in}}
+  <button id='new-comment'>+ New Comment</button>
+  {{/if}}
+</div>
+
+<script src='/js/viewPost.js'></script>

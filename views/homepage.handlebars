@@ -1,14 +1,18 @@
-{{#each blogPosts as |blogPost|}}
-  <div>
+<div class='homepage-post-list'>
+  {{#each blogPosts as |blogPost|}}
     <div>
-      <h4>{{blogPost.title}}</h4>
-      <span>Posted by:
+      <button type='button' id='blogpost-{{blogPost.id}}'>
+        {{blogPost.title}}
+        Posted by:
         {{blogPost.user.name}}
         on
-        {{format_date blogPost.date_created}}</span>
+        {{format_date blogPost.date_created}}
+      </button>
+      <div>
+        <p>{{blogPost.content}}</p>
+      </div>
     </div>
-    <div>
-      <p>{{blogPost.content}}</p>
-    </div>
-  </div>
-{{/each}}
+  {{/each}}
+</div>
+
+<script src='/js/homepage.js'></script>
