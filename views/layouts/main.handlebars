@@ -7,6 +7,7 @@
       content='width=device-width, initial-scale=1.0'
     />
     <title>Tech Blog</title>
+    <link rel='stylesheet' href='/css/style.css' />
   </head>
   <body>
     <div>
@@ -15,12 +16,13 @@
           <a href='/'>Home</a>
           <a href='/dashboard'>Dashboard</a>
           {{#if logged_in}}
-            <button id='logout'>logout</button>
+            <button id='logout'>Logout</button>
           {{else}}
             <a href='/login'>Login</a>
             <a href='/sign-up'>Sign Up</a>
           {{/if}}
         </nav>
+        <h1>Dashboard</h1>
       </header>
       <main>
         {{{body}}}

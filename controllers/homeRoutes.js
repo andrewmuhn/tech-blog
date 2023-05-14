@@ -72,13 +72,19 @@ router.get('/edit-post/:id', withAuth, async (req, res) => {
 router.get('/view-post/:id', async (req, res) => {
   try {
     const blogPostData = await BlogPost.findByPk(req.params.id, {
-      include: {
-        model: Comment,
-        include: {
+      include: [
+        {
           model: User,
           attributes: { exclude: ['password'] },
         },
-      },
+        {
+          model: Comment,
+          include: {
+            model: User,
+            attributes: { exclude: ['password'] },
+          },
+        },
+      ],
     });
     const blogPost = blogPostData.get({ plain: true });
     console.log(blogPost.comments);

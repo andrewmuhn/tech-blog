@@ -1,29 +1,30 @@
-<div class='col-md-6'>
-  <div>
-    <div>
-      {{blogPost.title}}
-      Posted by:
-      {{blogPost.user.name}}
-      on
-      {{format_date blogPost.date_created}}
+<div class='col-md-6 container'>
+  <div class='post-container'>
+    <div class='post-header'>
+      <h2>{{blogPost.title}}</h2>
+      <span>
+        Posted by:
+        {{blogPost.user.name}}
+        on
+        {{format_date blogPost.date_created}}
+      </span>
     </div>
     <p>{{blogPost.content}}</p>
   </div>
-  <div id='comment-container'>
+  <div id='comment-container' class='post-container hidden'>
     {{#each blogPost.comments as |comment|}}
-    <div>
-      Posted by:
-      {{comment.user.name}}
-      on
-      {{format_date comment.date_created}}
-    </div>
-    <p>{{comment.content}}</p>
-  </div>
+      <div class='post-header'>
+        Posted by:
+        {{comment.user.name}}
+        on
+        {{format_date comment.date_created}}
+      </div>
+      <p>{{comment.content}}</p>
     {{/each}}
   </div>
   <form id='comment-input-container'></form>
   {{#if logged_in}}
-  <button id='new-comment'>+ New Comment</button>
+    <button id='new-comment'>+ New Comment</button>
   {{/if}}
 </div>
 
