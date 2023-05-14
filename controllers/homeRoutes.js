@@ -60,7 +60,7 @@ router.get('/post/:id', async (req, res) => {
   try {
     const blogPostData = await BlogPost.findByPk(req.params.id);
     const blogPost = blogPostData.get({ plain: true });
-    res.render('viewPost', {
+    res.render('editPost', {
       blogPost,
       logged_in: req.session.logged_in,
     });
