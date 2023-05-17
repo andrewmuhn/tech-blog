@@ -1,6 +1,13 @@
 const addCommentInput = (event) => {
   event.preventDefault();
 
+  const commentHeader = document.createElement('h2');
+  commentHeader.textContent = 'New Comment';
+
+  const commentHeaderContainer = document.createElement('div');
+  commentHeaderContainer.setAttribute('class', 'form-header');
+  commentHeaderContainer.appendChild(commentHeader);
+
   const commentInput = document.createElement('input');
   commentInput.type = 'text';
   commentInput.name = 'comment';
@@ -12,15 +19,25 @@ const addCommentInput = (event) => {
 
   const commentSubmit = document.createElement('input');
   commentSubmit.type = 'submit';
+  commentSubmit.id = 'create-comment';
+  commentSubmit.setAttribute('class', 'button-style');
+
+  const commentForm = document.createElement('form');
+  commentForm.setAttribute('class', 'form new-comment-form');
+  commentForm.appendChild(commentLabel);
+  commentForm.appendChild(commentInput);
+  commentForm.appendChild(commentSubmit);
 
   const inputContainer = document.createElement('div');
-  inputContainer.appendChild(commentLabel);
-  inputContainer.appendChild(commentInput);
-  inputContainer.appendChild(commentSubmit);
+  inputContainer.setAttribute('class', 'p-div');
+  inputContainer.appendChild(commentForm);
 
   const container = document.getElementById(
     'comment-input-container'
   );
+  container.removeAttribute('class', 'none');
+  container.setAttribute('class', 'form-container');
+  container.appendChild(commentHeaderContainer);
   container.appendChild(inputContainer);
 
   const newCommentButton = document.getElementById('new-comment');

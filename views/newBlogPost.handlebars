@@ -1,19 +1,28 @@
-<div class='col-md-6'>
-  <h2>Create a Post</h2>
+<h1>Your Dashboard</h1>
+<div class='form-container'>
+  <div class='form-header'>
+    <h2>Create a Post</h2>
+  </div>
 
-  <form class='form new-post-form'>
-    <div class='form-group'>
-      <label for='title'>Title:</label>
-      <input class='form-input' type='text' id='title' />
-    </div>
-    <div class='form-group'>
-      <label for='content'>Content:</label>
-      <input class='form-input' type='text' id='content' />
-    </div>
-    <div class='form-group'>
-      <button class='btn btn-primary' type='submit'>Create</button>
-    </div>
-  </form>
+  <div class='p-div'>
+    <form class='form new-post-form'>
+      <div class='form-group'>
+        <label for='title'>Title:</label>
+        <input class='form-input' type='text' id='title' />
+      </div>
+      <div class='form-group'>
+        <label for='content'>Content:</label>
+        <input class='form-input' type='text' id='content' />
+      </div>
+      <div class='form-group'>
+        <button
+          id='create-post'
+          class='button-style'
+          type='submit'
+        >Create</button>
+      </div>
+    </form>
+  </div>
 </div>
 
 <script src='./js/newPost.js'></script>

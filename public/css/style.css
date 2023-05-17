@@ -11,10 +11,44 @@
     sans-serif;
 }
 
-nav {
+html {
   background-color: var(--stone);
-  /* padding-left: 20px; */
-  padding: 10px 0 10px 20px;
+}
+
+nav {
+  background-color: var(--beige);
+  border-radius: 5px;
+  padding: 10px 20px 10px 20px;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+}
+.nav-group {
+  color: var(--brown);
+  padding: 0 5px;
+}
+
+#logout {
+  font-size: 16px;
+  padding: 0, 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-el {
+  color: var(--brown);
+}
+
+.nav-el:hover {
+  cursor: pointer;
+}
+
+h1 {
+  background-color: var(--stone);
+  margin: 0;
+  padding: 10px 0 20px 30px;
+  color: var(--khaki);
 }
 
 /* div {
@@ -31,6 +65,38 @@ button {
   padding: 0, 0;
   background: none;
   border: none;
+  cursor: pointer;
+}
+
+button:focus {
+  border-color: red;
+}
+
+a {
+  text-decoration: none;
+}
+
+.post-container,
+.form-container {
+  margin: 10px;
+  border: 3px solid var(--brown);
+  border-color: var(--brown);
+  display: flex;
+  flex-direction: column;
+}
+
+/* h3 {
+  margin: 0 0 10px 0;
+} */
+
+.post-header,
+.form-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--beige);
+  width: 100%;
 }
 
 .post-header-button {
@@ -44,41 +110,46 @@ button {
   width: 100%;
 }
 
-a {
-  text-decoration: none;
-}
-
-a:visited {
-  color: black;
-}
-
-.post-container {
-  margin: 10px;
-  border: 3px solid var(--brown);
-  border-color: var(--brown);
-  display: flex;
-  flex-direction: column;
-}
-
-/* h3 {
-  margin: 0 0 10px 0;
-} */
-
-.post-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+/* #new-post,
+#new-comment,
+#create-post,
+#login,
+#signup,
+#create-comment  */
+.button-style {
+  display: block;
+  margin: 10px auto 0 auto;
+  width: 15%;
+  border: none;
+  border-radius: 3px;
   background-color: var(--beige);
-  width: 100%;
+  color: var(--brown);
+}
+
+/* #new-post:hover,
+#new-comment:hover,
+#create-post:hover,
+#login:hover,
+#signup:hover,
+#create-comment:hover  */
+.button-style:hover {
+  cursor: pointer;
+}
+
+.p-div {
+  background-color: var(--khaki);
 }
 
 p {
   font-family: Arial, Helvetica, sans-serif;
   padding-left: 5px;
-  min-height: 80px;
-  margin: 0;
-  align-items: center;
+  /* min-height: 80px; */
+  text-align: center;
+}
+
+form {
+  padding: 10px;
+  margin-bottom: 10px;
 }
 
 input {
@@ -91,6 +162,6 @@ input {
   align-self: center;
 }
 
-/* .hidden {
-  display: none;
-} */
+.none {
+  visibility: hidden;
+}

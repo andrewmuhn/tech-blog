@@ -13,16 +13,19 @@
     <div>
       <header>
         <nav>
-          <a href='/'>Home</a>
-          <a href='/dashboard'>Dashboard</a>
-          {{#if logged_in}}
-            <button id='logout'>Logout</button>
-          {{else}}
-            <a href='/login'>Login</a>
-            <a href='/sign-up'>Sign Up</a>
-          {{/if}}
+          <span class='nav-group'>
+            <a href='/' class='nav-el'>Home</a>
+            <a href='/dashboard' class='nav-el'>Dashboard</a>
+          </span>
+          <span class='nav-group'>
+            {{#if logged_in}}
+              <button id='logout' class='nav-el'>Logout</button>
+            {{else}}
+              <a href='/login' class='nav-el'>Login</a>
+              <a href='/sign-up' class='nav-el'>Sign Up</a>
+            {{/if}}
+          </span>
         </nav>
-        <h1>Dashboard</h1>
       </header>
       <main>
         {{{body}}}

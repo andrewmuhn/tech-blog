@@ -1,38 +1,43 @@
-<div class='col-md-6'>
-  <h2>Edit Post</h2>
+<h1>Your Dashboard</h1>
+<div class='form-container'>
+  <div class='form-header'>
+    <h2>Edit Post</h2>
+  </div>
 
-  <form class='form edit-post'>
-    <div class='form-group'>
-      <label for='title'>Title:</label>
-      <input
-        class='form-input'
-        type='text'
-        id='title'
-        value='{{blogPost.title}}'
-      />
-    </div>
-    <div class='form-group'>
-      <label for='content'>Content:</label>
-      <input
-        class='form-input'
-        type='text'
-        id='content'
-        value='{{blogPost.content}}'
-      />
-    </div>
-    <div class='form-group'>
-      <button
-        class='btn btn-primary update-button'
-        type='submit'
-      >Update</button>
-    </div>
-    <div class='form-group'>
-      <button
-        class='btn btn-primary delete-button'
-        type='button'
-      >Delete</button>
-    </div>
-  </form>
+  <div class='p-div'>
+    <form class='form edit-post'>
+      <div class='form-group'>
+        <label for='title'>Title:</label>
+        <input
+          class='form-input'
+          type='text'
+          id='title'
+          value='{{blogPost.title}}'
+        />
+      </div>
+      <div class='form-group'>
+        <label for='content'>Content:</label>
+        <input
+          class='form-input'
+          type='text'
+          id='content'
+          value='{{blogPost.content}}'
+        />
+      </div>
+      <div class='form-group'>
+        <button
+          class='update-button button-style'
+          type='submit'
+        >Update</button>
+      </div>
+      <div class='form-group'>
+        <button
+          class='delete-button button-style'
+          type='button'
+        >Delete</button>
+      </div>
+    </form>
+  </div>
 </div>
 
 <script src='/js/editPost.js'></script>
