@@ -1,14 +1,25 @@
+<h1>Your Dashboard</h1>
 <div class='dashboard-post-list'>
 
   {{#each blogPosts as |blogPost|}}
-    <div>
-      <button type='button' id='blogpost-{{blogPost.id}}'>
-        {{blogPost.title}}
-        {{format_date blogPost.date_created}}
-      </button>
+    <div class='post-container'>
+      <div class='post-header'>
+        <button
+          type='button'
+          id='blogpost-{{blogPost.id}}'
+          class='post-header-button'
+        >
+          <h2 id='blogpost-{{blogPost.id}}'>
+            {{blogPost.title}}
+          </h2>
+          <span id='blogpost-{{blogPost.id}}'>{{format_date
+              blogPost.date_created
+            }}</span>
+        </button>
+      </div>
     </div>
   {{/each}}
 </div>
-<button id='new-post'>+ New Post</button>
+<button id='new-post' class='button-style'>+ New Post</button>
 
 <script src='./js/dashboard.js'></script>

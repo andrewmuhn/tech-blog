@@ -1,29 +1,37 @@
-<div class='col-md-6'>
-  <div>
-    <div>
-      {{blogPost.title}}
-      Posted by:
-      {{blogPost.user.name}}
-      on
-      {{format_date blogPost.date_created}}
+<h1>The Tech Blog</h1>
+<div class='col-md-6 container'>
+  <div class='post-container'>
+    <div class='post-header'>
+      <h2>{{blogPost.title}}</h2>
+      <span>
+        Posted by:
+        {{blogPost.user.name}}
+        on
+        {{format_date blogPost.date_created}}
+      </span>
     </div>
-    <p>{{blogPost.content}}</p>
-  </div>
-  <div id='comment-container'>
-    {{#each blogPost.comments as |comment|}}
-    <div>
-      Posted by:
-      {{comment.user.name}}
-      on
-      {{format_date comment.date_created}}
+    <div class='p-div'>
+      <p>{{blogPost.content}}</p>
     </div>
-    <p>{{comment.content}}</p>
   </div>
-    {{/each}}
-  </div>
-  <form id='comment-input-container'></form>
+  {{#if blogPost.comments}}
+    <div id='comment-container' class='post-container hidden'>
+      {{#each blogPost.comments as |comment|}}
+        <div class='post-header'>
+          Posted by:
+          {{comment.user.name}}
+          on
+          {{format_date comment.date_created}}
+        </div>
+        <div class='p-div'>
+          <p>{{comment.content}}</p>
+        </div>
+      {{/each}}
+    </div>
+  {{/if}}
+  <div class='form-container none' id='comment-input-container'></div>
   {{#if logged_in}}
-  <button id='new-comment'>+ New Comment</button>
+    <button id='new-comment' class='button-style'>+ New Comment</button>
   {{/if}}
 </div>
 
