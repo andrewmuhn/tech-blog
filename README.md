@@ -21,30 +21,30 @@ To use this app:
 
 - Click on the Sign Up button if you are a new user or Login if you already have an account and enter your information.
 
-![Home Page](assets\homepage.png)
-![Sign Up](assets\sign-up.png)
-![Login](assets\login.png)
+![Home Page](assets/homepage.png)
+![Sign Up](assets/sign-up.png)
+![Login](assets/login.png)
 
 - After you login you will be taken to your dashboard
 
-![Dashboard](assets\dashboard.png)
+![Dashboard](assets/dashboard.png)
 
 - Here you can create a new post
 
-![Create](assets\create.png)
-![Dashboard Create](assets\dashboard-create.png)
+![Create](assets/create.png)
+![Dashboard Create](assets/dashboard-create.png)
 
 - If you click on an existing post you can edit or delete that post
 
-![Edit](assets\edit.png)
-![Dashboard Edit](assets\dashboard-edit.png)
+![Edit](assets/edit.png)
+![Dashboard Edit](assets/dashboard-edit.png)
 
 - If you return to the homepage you will see your new created posts and other will be able to click on them to leave a comment
 
-![Homepage Post](assets\homepage-post.png)
-![View Post](assets\view-post.png)
-![Comment](assets\comment.png)
-![View Post Comment](assets\view-post-comment.png)
+![Homepage Post](assets/homepage-post.png)
+![View Post](assets/view-post.png)
+![Comment](assets/comment.png)
+![View Post Comment](assets/view-post-comment.png)
 
 ## Credits
 
